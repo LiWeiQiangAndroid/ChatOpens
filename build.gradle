@@ -1,0 +1,77 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "1.13.3"
+}
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+group = 'com.chatopens.plugin'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+intellij {
+    version = '2025.1'
+    type = 'IC'
+    plugins = ['java']
+    updateSinceUntilBuild = false
+}
+
+dependencies {
+    implementation 'com.intellij:annotations:12.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+patchPluginXml {
+    sinceBuild = '222'
+    untilBuild = null
+    pluginDescription = "Upload APK/IPA files to Pgyer App Distribution Platform"
+    version = '1.0.0'
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+    options.encoding = 'UTF-8'
+}
+
+// 减少构建时的警告
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:-deprecation'
+}
+
+// 配置运行时的JVM参数以减少警告
+runIde {
+    jvmArgs = [
+            '-Dide.no.launcher=true',
+            '-Didea.system.path=build/idea-sandbox/system',
+            '-Didea.config.path=build/idea-sandbox/config',
+            '-Didea.log.path=build/idea-sandbox/log',
+            '-Didea.plugins.path=build/idea-sandbox/plugins',
+            '-Djava.awt.headless=true',
+            '-Dide.browser.jcef.headless.enabled=true'
+    ]
+}
+
+// 配置构建可搜索选项任务
+buildSearchableOptions {
+    enabled = false
+}
+
+// 清理缓存
+clean {
+    delete fileTree(dir: 'build', include: '**/*')
+}

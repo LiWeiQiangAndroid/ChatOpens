@@ -38,7 +38,7 @@ test {
 patchPluginXml {
     sinceBuild = '222'
     untilBuild = null
-    pluginDescription = "Upload APK/IPA files to Pgyer App Distribution Platform"
+    pluginDescription = "这是一个用于快速访问ChatOpens网站的IntelliJ IDEA插件"
     version = '1.0.0'
 }
 

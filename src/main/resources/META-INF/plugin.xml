@@ -3,7 +3,7 @@
     <id>com.chatopens.ideaplugin</id>
     <name>ChatOpens Access</name>
     <version>1.0.0</version>
-    <vendor email="support@chatopens.com" url="https://chatopens.com">ChatOpens</vendor>
+    <vendor email="lwqldsyzx@126.com" url="https://chatopens.com">李维强</vendor>
 
     <description><![CDATA[
     快速访问ChatOpens网站的IDEA插件。
@@ -25,7 +25,7 @@
     ]]></change-notes>
 
     <!-- 兼容性设置 -->
-    <idea-version since-build="203.0" until-build="241.*"/>
+    <idea-version since-build="203.0"/>
 
     <!-- 插件依赖 -->
     <depends>com.intellij.modules.platform</depends>

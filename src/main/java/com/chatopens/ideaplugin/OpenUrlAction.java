@@ -1,6 +1,8 @@
 package com.chatopens.ideaplugin;
 
-import com.intellij.ide.BrowserUtil;
+import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.openapi.wm.ToolWindowManager;
+import com.intellij.ui.jcef.JBCefBrowser;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.Messages;
@@ -27,7 +29,15 @@ public class OpenUrlAction extends AnAction {
 
         if (url != null) {
             try {
-                BrowserUtil.browse(url);
+                ToolWindow toolWindow = ToolWindowManager.getInstance(e.getProject()).getToolWindow("ChatOpens");
+                if (toolWindow != null) {
+                    toolWindow.show();
+                    // 获取工具窗口内容并切换到浏览器页面
+                    ChatOpensToolWindowContent content = toolWindow.getContentManager().getContent(0).getUserData(ChatOpensToolWindowContent.KEY);
+                    if (content != null) {
+                        content.openUrlInSidebar(url);
+                    }
+                }
             } catch (Exception ex) {
                 Messages.showErrorDialog(
                         e.getProject(),

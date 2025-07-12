@@ -14,6 +14,8 @@ public class ChatOpensToolWindowFactory implements ToolWindowFactory {
         ChatOpensToolWindowContent toolWindowContent = new ChatOpensToolWindowContent();
         Content content = ContentFactory.getInstance()
                 .createContent(toolWindowContent.getContentPanel(), "", false);
+        // Store the ChatOpensToolWindowContent instance in the content's user data
+        content.putUserData(ChatOpensToolWindowContent.KEY, toolWindowContent);
         toolWindow.getContentManager().addContent(content);
     }
 }

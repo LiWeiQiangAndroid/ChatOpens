@@ -1,6 +1,7 @@
 package com.chatopens.ideaplugin;
 
-import com.intellij.ide.BrowserUtil;
+import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.Messages;
@@ -26,41 +27,17 @@ public class ChatOpensToolbarAction extends AnAction {
 
    @Override
    public void actionPerformed(@NotNull AnActionEvent e) {
-       // 显示弹出菜单
-       ListPopup popup = JBPopupFactory.getInstance().createListPopup(
-               new BaseListPopupStep<SiteInfo>("选择要访问的网站", SITES) {
-                   @Override
-                   public PopupStep onChosen(SiteInfo selectedValue, boolean finalChoice) {
-                       if (finalChoice) {
-                           openUrl(selectedValue.url, e);
-                       }
-                       return FINAL_CHOICE;
-                   }
-
-                   @NotNull
-                   @Override
-                   public String getTextFor(SiteInfo value) {
-                       return value.name;
-                   }
-
-                   @Override
-                   public Icon getIconFor(SiteInfo value) {
-                       return null;
-                   }
-               }
-       );
-
-       popup.showInBestPositionFor(e.getDataContext());
-   }
-
-   private void openUrl(String url, AnActionEvent e) {
+       // 直接打开工具窗口
        try {
-           BrowserUtil.browse(url);
+           ToolWindow toolWindow = ToolWindowManager.getInstance(e.getProject()).getToolWindow("ChatOpens");
+           if (toolWindow != null) {
+               toolWindow.show();
+           }
        } catch (Exception ex) {
            Messages.showErrorDialog(
                    e.getProject(),
-                   "无法打开网站: " + url + "\n错误: " + ex.getMessage(),
-                   "访问错误"
+                   "无法打开 ChatOpens 工具窗口\n错误: " + ex.getMessage(),
+                   "错误"
            );
        }
    }

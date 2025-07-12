@@ -1,11 +1,11 @@
 package com.chatopens.ideaplugin;
 
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.util.Key;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBPanel;
-import com.intellij.util.ui.JBUI;
 import com.intellij.ui.jcef.JBCefBrowser;
-import com.intellij.openapi.util.Key;
+import com.intellij.util.ui.JBUI;
 
 import javax.swing.*;
 import java.awt.*;

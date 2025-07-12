@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <defs>
+    <linearGradient id="bgGradient16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chatGradient16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="openGradient16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="16" height="16" rx="3" ry="3" fill="url(#bgGradient16)"/>
+  
+  <!-- Simplified chat bubble -->
+  <path d="M2 3 L8 3 Q9 3 9 4 L9 7 Q9 8 8 8 L4 8 L2 10 L2 4 Q2 3 3 3 Z" 
+        fill="url(#chatGradient16)" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+  
+  <!-- Simple chat dot -->
+  <circle cx="5.5" cy="5.5" r="0.8" fill="rgba(255,255,255,0.9)"/>
+  
+  <!-- Simplified open door -->
+  <rect x="10" y="5" width="4" height="6" rx="0.5" 
+        fill="url(#openGradient16)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  
+  <!-- Door opening -->
+  <rect x="10.5" y="5.5" width="2.5" height="5" rx="0.3" 
+        fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="0.3"/>
+  
+  <!-- Light ray -->
+  <path d="M13 8 L15 7" stroke="rgba(255,255,255,0.8)" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Small sparkle -->
+  <circle cx="3" cy="13" r="0.5" fill="rgba(255,255,255,0.6)"/>
+  
+</svg>

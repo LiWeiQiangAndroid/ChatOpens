@@ -34,7 +34,7 @@
     <!-- 扩展点 -->
     <extensions defaultExtensionNs="com.intellij">
         <!-- 工具窗口 -->
-        <toolWindow id="ChatOpens" anchor="right" factoryClass="com.chatopens.ideaplugin.ChatOpensToolWindowFactory"/>
+        <toolWindow id="ChatOpens" anchor="right" factoryClass="com.chatopens.ideaplugin.ChatOpensToolWindowFactory" icon="/icons/pluginIcon.svg"/>
     </extensions>
 
     <!-- 动作定义 -->
@@ -67,7 +67,7 @@
 
         <!-- 工具栏按钮 -->
         <action id="ChatOpensToolbarAction" class="com.chatopens.ideaplugin.ChatOpensToolbarAction"
-                text="ChatOpens" description="快速访问ChatOpens" icon="/icons/chatopens.png">
+                text="ChatOpens" description="快速访问ChatOpens" icon="/icons/pluginIcon.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
         </action>
     </actions>

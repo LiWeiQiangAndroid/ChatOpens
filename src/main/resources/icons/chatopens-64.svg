@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGradient64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chatGradient64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="openGradient64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aiGradient64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="connectionGradient64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#51e5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7209b7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow64">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" ry="12" fill="url(#bgGradient64)"/>
+  
+  <!-- Network background -->
+  <g opacity="0.15">
+    <path d="M5 5 Q32 15 59 5" stroke="rgba(255,255,255,0.4)" stroke-width="0.5" fill="none"/>
+    <path d="M5 59 Q32 49 59 59" stroke="rgba(255,255,255,0.4)" stroke-width="0.5" fill="none"/>
+  </g>
+  
+  <!-- Chat bubble with AI -->
+  <g transform="translate(8, 12)">
+    <!-- Main chat bubble -->
+    <path d="M4 4 L28 4 Q32 4 32 8 L32 20 Q32 24 28 24 L12 24 L4 30 L4 8 Q4 4 8 4 Z" 
+          fill="url(#chatGradient64)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+    
+    <!-- AI brain -->
+    <g transform="translate(6, 6)">
+      <path d="M12 4 Q18 4 20 8 Q22 6 24 8 Q26 10 24 16 Q22 20 18 22 Q12 24 6 22 Q2 20 0 16 Q-2 10 2 8 Q4 6 6 8 Q8 4 12 4 Z" 
+            fill="url(#aiGradient64)" opacity="0.8" filter="url(#glow64)"/>
+      
+      <!-- Neural pathways -->
+      <g stroke="rgba(255,255,255,0.9)" stroke-width="0.5" fill="none" opacity="0.7">
+        <path d="M8 10 Q12 12 16 10"/>
+        <path d="M9 14 Q13 16 17 14"/>
+        <path d="M12 8 L12 18"/>
+      </g>
+    </g>
+    
+    <!-- Typing dots -->
+    <g transform="translate(20, 14)">
+      <circle cx="0" cy="0" r="1.5" fill="rgba(255,255,255,0.9)">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="4" cy="0" r="1.5" fill="rgba(255,255,255,0.7)">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="8" cy="0" r="1.5" fill="rgba(255,255,255,0.5)">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Open portal -->
+  <g transform="translate(35, 22)">
+    <!-- Portal frame -->
+    <rect x="0" y="0" width="18" height="24" rx="3" 
+          fill="url(#openGradient64)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+    
+    <!-- Open doorway -->
+    <path d="M3 3 L15 3 Q16 3 16 4 L16 20 Q16 21 15 21 L3 21 Z" 
+          fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+    
+    <!-- Door handle -->
+    <circle cx="13" cy="12" r="1" fill="rgba(255,255,255,0.9)"/>
+    
+    <!-- Data streams -->
+    <g opacity="0.8">
+      <g font-family="monospace" font-size="2" fill="rgba(255,255,255,0.8)">
+        <text x="18" y="8">01</text>
+        <text x="20" y="12">10</text>
+        <text x="19" y="16">11</text>
+        <text x="21" y="20">01</text>
+      </g>
+      
+      <!-- Light rays -->
+      <path d="M16 9 L24 6" stroke="rgba(255,255,255,0.9)" stroke-width="1" stroke-linecap="round"/>
+      <path d="M16 12 L26 12" stroke="rgba(255,255,255,0.9)" stroke-width="1" stroke-linecap="round"/>
+      <path d="M16 15 L24 18" stroke="rgba(255,255,255,0.9)" stroke-width="1" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Particles -->
+    <circle cx="19" cy="9" r="0.5" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="cx" values="19;24;29" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Connection network -->
+  <g opacity="0.6">
+    <circle cx="12" cy="50" r="2" fill="url(#connectionGradient64)" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+    <circle cx="52" cy="54" r="2" fill="url(#connectionGradient64)" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+    <circle cx="28" cy="58" r="1.5" fill="url(#connectionGradient64)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+    
+    <path d="M12 50 Q20 54 28 58" stroke="url(#connectionGradient64)" stroke-width="0.5" fill="none"/>
+    <path d="M28 58 Q40 56 52 54" stroke="url(#connectionGradient64)" stroke-width="0.5" fill="none"/>
+  </g>
+  
+  <!-- Tech elements -->
+  <g opacity="0.4">
+    <text x="50" y="15" font-family="monospace" font-size="4" fill="rgba(255,255,255,0.7)">&lt;/&gt;</text>
+    <text x="8" y="55" font-family="monospace" font-size="3" fill="rgba(255,255,255,0.5)">{}</text>
+    <text x="55" y="25" font-family="sans-serif" font-size="2" fill="rgba(255,255,255,0.6)">API</text>
+  </g>
+  
+  <!-- Sparkles -->
+  <g opacity="0.3">
+    <circle cx="10" cy="8" r="0.8" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="54" cy="12" r="1" fill="rgba(255,255,255,0.6)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="8" cy="48" r="0.6" fill="rgba(255,255,255,0.7)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+</svg>

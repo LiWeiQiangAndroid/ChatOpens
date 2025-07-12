@@ -6,68 +6,87 @@
     <vendor email="lwqldsyzx@126.com" url="https://chatopens.com">李维强</vendor>
 
     <description><![CDATA[
-    快速访问ChatOpens网站的IDEA插件。
-    提供便捷的工具栏按钮和菜单项，可直接打开ChatOpens主站和备用站。
-
-    Features:
-    - 工具栏快速访问按钮
-    - 菜单项快速访问
-    - 支持主站和备用站访问
-    - 简洁易用的界面
+        <p>ChatOpens Access is an IntelliJ IDEA plugin for quickly accessing ChatOpens AI websites.
+    It provides convenient toolbar buttons and menu items to directly open ChatOpens main and backup sites.</p>
+        <p>Features:</p>
+        <ul>
+            <li>Quick access to ChatOpens.com and ChatOpens.net main sites</li>
+            <li>Access to techopens.com and chatopens.chat backup sites</li>
+            <li>Convenient toolbar buttons for one-click access</li>
+            <li>Integrated menu items for fast navigation</li>
+            <li>Keyboard shortcuts support (Ctrl+Alt+C for main site)</li>
+            <li>Tool window integration for enhanced workspace organization</li>
+            <li>Lightweight design with minimal performance impact</li>
+        </ul>
+        <p>This plugin helps developers quickly access ChatOpens AI services without leaving their IDE environment,
+        streamlining workflow and enhancing productivity through seamless integration.</p>
+        <hr/>
+        <p>ChatOpens Access 是一款IntelliJ IDEA平台插件，用于快速访问ChatOpens AI网站。该插件提供了便捷的工具栏按钮和菜单项，让开发者能够直接打开ChatOpens主站和备用站点。</p>
+        <p>功能特点：</p>
+        <ul>
+            <li>快速访问ChatOpens.com和ChatOpens.net主站</li>
+            <li>访问techopens.com和chatopens.chat备用站点</li>
+            <li>便捷的工具栏按钮，一键访问</li>
+            <li>集成的菜单项，快速导航</li>
+            <li>支持键盘快捷键（Ctrl+Alt+C访问主站）</li>
+            <li>工具窗口集成，增强工作空间组织</li>
+            <li>轻量级设计，对性能影响最小</li>
+        </ul>
+        <p>此插件帮助开发者在不离开IDE环境的情况下快速访问ChatOpens AI服务，简化工作流程并通过无缝集成提升开发效率。</p>
+        <hr/>
+        <div style="background-color: #f0f4f8; padding: 10px; border-radius: 5px; margin-top: 10px;">
+            <p style="font-size: 18px; font-weight: bold; color: #4A6782; text-align: center; margin: 0;">
+                反馈 | Feedback: <a href="mailto:lwqldsyzx@126.com">lwqldsyzx@126.com</a>
+            </p>
+        </div>
     ]]></description>
 
-    <change-notes><![CDATA[
-    v1.0.0 - 初始版本
-    - 支持访问ChatOpens.com主站
-    - 支持访问ChatOpens.net主站
-    - 支持访问techopens.com备用站
-    - 支持访问chatopens.chat备用站
-    ]]></change-notes>
 
-    <!-- 兼容性设置 -->
+    <!-- Compatibility settings -->
     <idea-version since-build="203.0"/>
 
-    <!-- 插件依赖 -->
+    <!-- Plugin dependencies -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.java</depends>
 
-    <!-- 扩展点 -->
+    <!-- Extension points -->
     <extensions defaultExtensionNs="com.intellij">
-        <!-- 工具窗口 -->
-        <toolWindow id="ChatOpens" anchor="right" factoryClass="com.chatopens.ideaplugin.ChatOpensToolWindowFactory" icon="/icons/pluginIcon.svg"/>
+        <!-- Tool window -->
+        <toolWindow id="ChatOpens" anchor="right" factoryClass="com.chatopens.ideaplugin.ChatOpensToolWindowFactory"
+                    icon="/icons/pluginIcon.svg"/>
     </extensions>
 
-    <!-- 动作定义 -->
+    <!-- Action definitions -->
     <actions>
-        <!-- 主菜单组 -->
-        <group id="ChatOpensActionGroup" text="ChatOpens" description="ChatOpens Access">
+        <!-- Main menu group -->
+        <group id="ChatOpensActionGroup" text="ChatOpens">
             <add-to-group group-id="MainMenu" anchor="last"/>
 
-            <!-- 主站访问 -->
+            <!-- Main site access -->
             <action id="OpenChatOpensMain1" class="com.chatopens.ideaplugin.OpenUrlAction"
-                    text="ChatOpens.com (主站)" description="访问ChatOpens.com主站">
+                    text="ChatOpens.com (Main)">
                 <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt C"/>
             </action>
 
             <action id="OpenChatOpensMain2" class="com.chatopens.ideaplugin.OpenUrlAction"
-                    text="ChatOpens.net (主站)" description="访问ChatOpens.net主站">
+                    text="ChatOpens.net (Main)">
             </action>
 
             <separator/>
 
-            <!-- 备用站访问 -->
+            <!-- Backup site access -->
             <action id="OpenChatOpensBackup1" class="com.chatopens.ideaplugin.OpenUrlAction"
-                    text="techopens.com (备用)" description="访问techopens.com备用站">
+                    text="techopens.com (Backup)">
             </action>
 
             <action id="OpenChatOpensBackup2" class="com.chatopens.ideaplugin.OpenUrlAction"
-                    text="chatopens.chat (备用)" description="访问chatopens.chat备用站">
+                    text="chatopens.chat (Backup)">
             </action>
         </group>
 
-        <!-- 工具栏按钮 -->
+        <!-- Toolbar button -->
         <action id="ChatOpensToolbarAction" class="com.chatopens.ideaplugin.ChatOpensToolbarAction"
-                text="ChatOpens" description="快速访问ChatOpens" icon="/icons/pluginIcon.svg">
+                text="ChatOpens" icon="/icons/pluginIcon.svg">
             <add-to-group group-id="MainToolBar" anchor="last"/>
         </action>
     </actions>

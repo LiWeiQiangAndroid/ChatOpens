@@ -16,39 +16,77 @@ import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * ChatOpens 工具栏动作类
+ * 负责处理工具栏按钮点击事件
+ * 直接打开ChatOpens工具窗口，显示网站选择页面
+ */
+
 public class ChatOpensToolbarAction extends AnAction {
 
-   private static final List<SiteInfo> SITES = Arrays.asList(
-           new SiteInfo("ChatOpens.com (主站)", "https://chatopens.com"),
-           new SiteInfo("ChatOpens.net (主站)", "https://chatopens.net"),
-           new SiteInfo("techopens.com (备用)", "https://techopens.com"),
-           new SiteInfo("chatopens.chat (备用)", "https://chatopens.chat")
-   );
+    /**
+     * 支持的网站信息列表
+     * 包含主站和备用站的名称和URL
+     * 保留以便后续可能的功能扩展
+     */
+    private static final List<SiteInfo> SITES = Arrays.asList(
+            new SiteInfo("ChatOpens.com (主站)", "https://chatopens.com"),
+            new SiteInfo("ChatOpens.net (主站)", "https://chatopens.net"),
+            new SiteInfo("techopens.com (备用)", "https://techopens.com"),
+            new SiteInfo("chatopens.chat (备用)", "https://chatopens.chat")
+    );
 
-   @Override
-   public void actionPerformed(@NotNull AnActionEvent e) {
-       // 直接打开工具窗口
-       try {
-           ToolWindow toolWindow = ToolWindowManager.getInstance(e.getProject()).getToolWindow("ChatOpens");
-           if (toolWindow != null) {
-               toolWindow.show();
-           }
-       } catch (Exception ex) {
-           Messages.showErrorDialog(
-                   e.getProject(),
-                   "无法打开 ChatOpens 工具窗口\n错误: " + ex.getMessage(),
-                   "错误"
-           );
-       }
-   }
+    /**
+     * 动作执行方法
+     * 当用户点击工具栏按钮时调用
+     * 直接显示ChatOpens工具窗口
+     *
+     * @param e 动作事件，包含上下文信息
+     */
+    @Override
+    public void actionPerformed(@NotNull AnActionEvent e) {
+        // 直接打开工具窗口
+        try {
+            // 获取ChatOpens工具窗口
+            ToolWindow toolWindow = ToolWindowManager.getInstance(e.getProject()).getToolWindow("ChatOpens");
+            if (toolWindow != null) {
+                // 显示工具窗口，默认显示网站选择页面
+                toolWindow.show();
+            }
+        } catch (Exception ex) {
+            // 显示错误对话框
+            Messages.showErrorDialog(
+                    e.getProject(),
+                    "无法打开 ChatOpens 工具窗口\n错误: " + ex.getMessage(),
+                    "错误"
+            );
+        }
+    }
 
-   private static class SiteInfo {
-       final String name;
-       final String url;
+    /**
+     * 网站信息内部类
+     * 封装网站名称和URL信息
+     * 为后续可能的功能扩展预留
+     */
+    private static class SiteInfo {
+        /**
+         * 网站显示名称
+         */
+        final String name;
+        /**
+         * 网站URL地址
+         */
+        final String url;
 
-       SiteInfo(String name, String url) {
-           this.name = name;
-           this.url = url;
-       }
-   }
+        /**
+         * 构造方法
+         *
+         * @param name 网站显示名称
+         * @param url  网站URL地址
+         */
+        SiteInfo(String name, String url) {
+            this.name = name;
+            this.url = url;
+        }
+    }
 }
